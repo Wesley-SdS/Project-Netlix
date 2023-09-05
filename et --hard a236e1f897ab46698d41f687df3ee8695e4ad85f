@@ -1,0 +1,29 @@
+[33mcommit e79f78f2a50cd6e0b600f212a745d99c2ae5ba05[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Wesley-SdS <wesleysantos.0095@gmail.com>
+Date:   Tue Sep 5 06:10:47 2023 -0300
+
+    Atualizar vercel.json e Prisma Client
+
+[33mcommit a236e1f897ab46698d41f687df3ee8695e4ad85f[m
+Author: Wesley-SdS <wesleysantos.0095@gmail.com>
+Date:   Tue Sep 5 05:56:21 2023 -0300
+
+    Adicionar vercel.json
+
+[33mcommit bf1cc77cbae4ab886535d61a4c6613c3b755400e[m
+Author: Wesley-SdS <wesleysantos.0095@gmail.com>
+Date:   Tue Sep 5 05:36:09 2023 -0300
+
+    first commit
+
+[33mcommit d0bfdc3dad586d458d5fb8561b842e27ba8f1154[m
+Author: Wesley-SdS <wesleysantos.0095@gmail.com>
+Date:   Sat Sep 2 20:39:38 2023 -0300
+
+    first commit
+
+[33mcommit 7f3d6e59c4b433a3de008fdd3048e39ddbf2bdd0[m
+Author: Wesley-SdS <wesleysantos.0095@gmail.com>
+Date:   Mon Jul 10 20:30:12 2023 -0300
+
+    Initial commit from Create Next App
