@@ -3,8 +3,6 @@ import { useRouter } from 'next/router';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
 import { PlayIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
-
-
 import { MovieInterface } from '@/types';
 import FavoriteButton from './FavoriteButton';
 import useInfoModalStore from '@/hooks/useInfoModalStore';
@@ -17,11 +15,20 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
   const router = useRouter();
   const { openModal } = useInfoModalStore();
 
-  const redirectToWatch = useCallback(() => router.push(`/watch/${data.id}`), [router, data.id]);
+  const redirectToWatch = useCallback(() => {
+    console.log("Clicou no botão 'Redirecionar para assistir'. Data:", data);
+    console.log("Valor de data.id:", data?.id);
+    if (data && data.id) {
+      router.push(`/watch/${data.id}`);
+    }
+  }, [router, data]);
+
+  console.log("Renderizando MovieCard. Data:", data);
+  console.log("Valor de data.id no início:", data?.id);
 
   return (
     <div className="group bg-zinc-900 col-span relative h-[12vw]">
-      <img onClick={redirectToWatch} src={data.thumbnailUrl} alt="Movie" draggable={false} className="
+      <img onClick={redirectToWatch} src={data?.thumbnailUrl} alt="Movie" draggable={false} className="
         cursor-pointer
         object-cover
         transition
@@ -51,7 +58,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
         group-hover:translate-x-[2vw]
         group-hover:opacity-100
       ">
-        <img onClick={redirectToWatch} src={data.thumbnailUrl} alt="Movie" draggable={false} className="
+        <img onClick={redirectToWatch} src={data?.thumbnailUrl} alt="Movie" draggable={false} className="
           cursor-pointer
           object-cover
           transition
@@ -76,8 +83,12 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
             <div onClick={redirectToWatch} className="cursor-pointer w-6 h-6 lg:w-10 lg:h-10 bg-white rounded-full flex justify-center items-center transition hover:bg-neutral-300">
               <PlayIcon className="text-black w-4 lg:w-6" />
             </div>
-            <FavoriteButton movieId={data.id} />
-            <div onClick={() => openModal(data?.id)} className="cursor-pointer ml-auto group/item w-6 h-6 lg:w-10 lg:h-10 border-white border-2 rounded-full flex justify-center items-center transition hover:border-neutral-300">
+            <FavoriteButton movieId={data?.id} />
+            <div onClick={() => {
+              console.log("Clicou no botão 'Abrir modal'. Data:", data);
+              console.log("Valor de data.id no botão 'Abrir modal':", data?.id);
+              openModal(data?.id);
+            }} className="cursor-pointer ml-auto group/item w-6 h-6 lg:w-10 lg:h-10 border-white border-2 rounded-full flex justify-center items-center transition hover:border-neutral-300">
               <ChevronDownIcon className="text-white group-hover/item:text-neutral-300 w-4 lg:w-6" />
             </div>
           </div>
@@ -85,15 +96,15 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
             New <span className="text-white">2023</span>
           </p>
           <div className="flex flex-row mt-4 gap-2 items-center"> 
-            <p className="text-white text-[10px] lg:text-sm">{data.duration}</p>
+            <p className="text-white text-[10px] lg:text-sm">{data?.duration}</p>
           </div>
           <div className="flex flex-row items-center gap-2 mt-4 text-[8px] text-white lg:text-sm">
-            <p>{data.genre}</p>
+            <p>{data?.genre}</p>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default MovieCard;
