@@ -1,14 +1,1 @@
-{
-    "version": 2,
-    "functions": {},
-    "routes": {},
-    "env": {},
-    "build": {
-      "functions": {
-        "api/auth/[...nextauth].js": {
-          "runtime": "@vercel/node@16"
-        }
-      }
-    }
-  }
-  
+
